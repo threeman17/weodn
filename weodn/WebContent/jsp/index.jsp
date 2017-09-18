@@ -91,7 +91,7 @@
                 <div class="title">百度</div>
             </div>
              <div class="shortcut"
-                 onclick="Win10.openUrl('http://baidu.com','<img class=\'icon\' src=\'./img/icon/weodimage.png\'/>壁纸')">
+                 onclick="Win10.openUrl('http://localhost:8080/weodn/jsp/weodimage','<img class=\'icon\' src=\'./img/icon/weodimage.png\'/>壁纸')">
                 <img class="icon" src="./img/icon/weodimage.png"/>
                 <div class="title">微壁纸</div>
             </div>
