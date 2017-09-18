@@ -131,7 +131,7 @@
 			    		+'</div>'+
 			    		'<div class="fh5co-desc">'+data[i].title+'</div>'
 			    		+'<div class="fh5co-author">作者：'+data[i].author+'</div>'
-			    		+'<div class="fh5co-footer"><span title="设为壁纸" onclick="setting('+data[i].img_src+')"></span><span title="收藏"></span></div>'+
+			    		+'<div class="fh5co-footer"><span title="设为壁纸" onclick="setting(this)" img_data="'+data[i].img_src+'"></span><span title="收藏"></span></div>'+
 			    	'</div>'
 				}
 				$("#fh5co-board").html(str);
@@ -161,10 +161,9 @@
 	<script src="js/win10.child.js"></script>
 	
 	<script type="text/javascript">
-		function setting(img){
-			Win10_parent.setBgUrl({
-                main:"http://pic1.win4000.com/wallpaper/0/53df2dedb3261.jpg"
-            });
+		function setting(obj){
+			Win10_parent.setBgUrl({main:$(obj).attr("img_data")})
+//			alert($(obj).attr("img_data"))
 		}
 	</script>
 	
