@@ -209,7 +209,7 @@ public class DBHelper {
 //		DBHelper.init("com.mysql.jdbc.Driver", "jdbc:mysql://localhost:3306/weod", "root", "root");
 //		DBHelper.delete(Student.class, "and id=?", 3);
 //		DBHelper.startPage(3, 2);
-//		List<Luser> list = DBHelper.select("select * from users where userid=? and password=?", Luser.class,"1","2");
+//		List<Luser> list = DBHelper.select("select * from users where ?=?", Luser.class,1,1);
 //		System.out.println(list.get(0));
 //		PageInfo<Student> stus=new PageInfo<>(list);
 //		System.out.println(stus);

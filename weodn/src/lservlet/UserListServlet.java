@@ -1,11 +1,16 @@
 package lservlet;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import lbean.Luser;
+import utils.DBHelper;
 
 /**
  * Servlet implementation class UserListServlet
@@ -26,7 +31,15 @@ public class UserListServlet extends HttpServlet {
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		try {
+			DBHelper.init("com.mysql.jdbc.Driver", "jdbc:mysql://localhost:3306/weod", "root", "root");
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		String sql="select * from users where ?=?";
+		List<Luser> list=DBHelper.select(sql, Luser.class, 1,1);
+		DBHelper.close();
 	}
 
 }
