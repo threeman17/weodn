@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import lbean.Luser;
+
 
 /**
  * Servlet Filter implementation class LoginFilter
@@ -37,6 +39,23 @@ public class LoginFilter extends HttpServlet implements Filter {
 		req.setCharacterEncoding("UTF-8");
 		res.setContentType("text/html;charset=UTF-8");
 		String uri=req.getRequestURI();
+		HttpSession session=req.getSession();		
+		if(uri.contains("/userlist")){
+			Luser userinfo=(Luser)session.getAttribute("LOGIN_STATUS");
+			String rootid=userinfo.getUserid();
+			String rootpassword=userinfo.getPassword();
+			if(rootid.equals("root")&&rootpassword.equals("root")){
+				chain.doFilter(request, response);
+				return;
+			}else
+			{
+				res.getWriter().write("进入失败！");
+				return;
+			}
+		}
+		
+		
+		
 		if(uri.contains("/login")){
 			chain.doFilter(request, response);
 			return;
@@ -44,8 +63,7 @@ public class LoginFilter extends HttpServlet implements Filter {
 		if(uri.contains("Login")){
 			chain.doFilter(request, response);
 			return;
-		}
-		HttpSession session=req.getSession();
+		}		
 		Object status=session.getAttribute("LOGIN_STATUS");		
 		if(status==null){
 			System.out.println(req.getContextPath());

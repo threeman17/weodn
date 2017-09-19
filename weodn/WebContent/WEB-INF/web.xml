@@ -25,4 +25,12 @@
     <servlet-name>UpdateUserServlet</servlet-name>
     <url-pattern>/lservlet/UpdateUserServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>GetUserServlet</servlet-name>
+    <servlet-class>lservlet.GetUserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetUserServlet</servlet-name>
+    <url-pattern>/lservlet/GetUserServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

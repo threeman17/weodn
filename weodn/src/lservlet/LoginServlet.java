@@ -34,6 +34,7 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 		String userid = request.getParameter("userid");
 		System.out.println(userid);
 		String password = request.getParameter("password");
@@ -54,8 +55,22 @@ public class LoginServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.setAttribute("LOGIN_STATUS", userinfo);
 		System.out.println(userinfo);
+		String rootid=userinfo.getUserid();
+		String rootpassword=userinfo.getPassword();
+		
+		if(rootid.equals("root")&&rootpassword.equals("root")){
+			System.out.println(rootid+" "+rootpassword);			
+			List<Luser> list0=null;
+			String sql="select * from users where ?=?";
+			list0=DBHelper.select(sql, Luser.class, 1,1);					
+			session.setAttribute("userlist", list0);
+			DBHelper.close();
+			System.out.println(list0);
+			response.sendRedirect(request.getContextPath() + "/jsp/userlist.jsp");
+		}else{
 		DBHelper.close();
 		response.sendRedirect(request.getContextPath() + "/jsp/index.jsp");
-	}
+			}
+		}
 
 }

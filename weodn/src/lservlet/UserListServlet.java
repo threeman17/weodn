@@ -58,6 +58,7 @@ public class UserListServlet extends HttpServlet {
 		list=DBHelper.select(sql, Luser.class, 1,1);		
 		HttpSession session = request.getSession();
 		session.setAttribute("userlist", list);
+		DBHelper.close();
 	}
 
 }
