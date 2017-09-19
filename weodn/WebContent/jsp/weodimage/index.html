@@ -103,18 +103,18 @@
 	<!-- jQuery -->
 	<script src="js/jquery.min.js"></script>
 	<script type="text/javascript">
-		var user="";
-		$.ajax({
-				type:"get",
-				url:"http://localhost:8080/weodimage/user.action",
-				jsonp:"callback",
-				async:true,
-				dataType:"jsonp",
-				success:function(data){
-					user=data;
-					$(".navbar-brand").html(data.username)
-				}
-			});
+//		var user="";
+//		$.ajax({
+//				type:"get",
+//				url:"http://localhost:8080/weodimage/user.action",
+//				jsonp:"callback",
+//				async:true,
+//				dataType:"jsonp",
+//				success:function(data){
+//					user=data;
+//					$(".navbar-brand").html(data.username)
+//				}
+//			});
 		$.ajax({
 			type:"get",
 			url:"http://localhost:8080/weodimage/imagelist.action?",
