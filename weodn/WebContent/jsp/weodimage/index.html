@@ -83,14 +83,14 @@
 
         <div id="fh5co-board" data-columns>
 
-        	<div class="item">
+        	<!-- <div class="item">
         		<div class="animate-box">
 	        		<a href="images/img_1.jpg" class="image-popup fh5co-board-img" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, eos?"><img src="images/img_1.jpg" alt="Free HTML5 Bootstrap template"></a>
         		</div>
         		<div class="fh5co-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, eos?</div>
         		<div class="fh5co-author">来源：</div>
         		<div class="fh5co-footer"><span title="设为壁纸"></span><span title="收藏"></span></div>
-        	</div>
+        	</div> -->
         	
         </div>
         </div>
@@ -103,18 +103,17 @@
 	<!-- jQuery -->
 	<script src="js/jquery.min.js"></script>
 	<script type="text/javascript">
-//		var user="";
-//		$.ajax({
-//				type:"get",
-//				url:"http://localhost:8080/weodimage/user.action",
-//				jsonp:"callback",
-//				async:true,
-//				dataType:"jsonp",
-//				success:function(data){
-//					user=data;
-//					$(".navbar-brand").html(data.username)
-//				}
-//			});
+		var user="";
+		$.ajax({
+				type:"get",
+				url:"http://localhost:8080/weodn/lservlet/GetUserServlet",
+				async:true,
+				dataType:"json",
+				success:function(data){
+					user=data;
+					$(".navbar-brand").html(data.nickname);
+				}
+			});
 		$.ajax({
 			type:"get",
 			url:"http://localhost:8080/weodimage/imagelist.action?",
