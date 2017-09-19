@@ -61,6 +61,7 @@ public class LoginFilter extends HttpServlet implements Filter {
 			String rootid=userinfo.getUserid();
 			String rootpassword=userinfo.getPassword();
 			if(rootid.equals("root")&&rootpassword.equals("root")){
+//				request.getRequestDispatcher("../lservlet/LoginServlet").forward(request,response);
 				chain.doFilter(request, response);
 				return;
 			}else

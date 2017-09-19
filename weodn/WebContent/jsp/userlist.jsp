@@ -98,11 +98,12 @@ function member_add(title,url,w,h){
 
 /*用户-删除*/
 function member_del(obj,id){
-	layer.confirm('确认要删除吗？',function(index){		
+	layer.confirm('确认要删除吗？',function(index){
 		 $.ajax({
-			type: 'POST',
-			url: '../lservlet/DeleteUserServlet?userid='+id,
-			dataType: 'json',
+			type: 'GET',
+			url: '../lservlet/DeleteUserServlet',
+			datatype:'json',
+			data:{userid:id},
 			success: function(data){
 				$(obj).parents("tr").remove();
 				layer.msg('已删除!',{icon:1,time:1000});
