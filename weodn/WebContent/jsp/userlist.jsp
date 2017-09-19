@@ -35,12 +35,11 @@
 		<input type="text" class="input-text" style="width:250px" placeholder="输入会员名称、电话、邮箱" id="" name="">
 		<button type="submit" class="btn btn-success radius" id="" name=""><i class="Hui-iconfont">&#xe665;</i> 搜用户</button>
 	</div>
-	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a href="javascript:;" onclick="member_add('添加用户','member-add.html','','510')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加用户</a></span> <span class="r">共有数据：<strong>88</strong> 条</span> </div>
+	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a href="javascript:;" onclick="member_add('添加用户','member-add.html','','510')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加用户</a></span> <span class="r"></span> </div>
 	<div class="mt-20">
 	<table class="table table-border table-bordered table-hover table-bg table-sort">
 		<thead>
 			<tr class="text-c">
-				<th width="25"><input type="checkbox" name="" value=""></th>
 				<th width="80">ID</th>
 				<th width="100">昵称</th>
 				<th width="80">密码</th>
@@ -48,14 +47,13 @@
 				<th width="130">加入时间</th>
 				<th width="130">更新时间</th>				
 				<th width="130">状态</th>
-				<th width="130">操作</th>
+				<th width="70">操作</th>
 			</tr>
 		</thead>
 		<tbody>
 
 			<c:forEach items="${userlist}" var="second">					
 					<tr class="text-c">
-						<td><input type="checkbox"></td>						
 						<td>${second.userid}</td>
 						<td>${second.nickname}</td>	
 						<td>${second.password}</td>					
@@ -63,8 +61,7 @@
 						<td>${second.createtime}</td>
 						<td>${second.updatetime}</td>
 						<td class="td-status"><span class="label label-success radius">已启用</span></td>
-						<td class="td-manage">
-						   <a title="删除" href="" onclick="member_del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+						<td class="td-manage"> <a title="删除" href="javascript:;" onclick="member_del(this,'${second.userid}')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
 					</tr>														
 			</c:forEach>
 		</tbody>
@@ -88,11 +85,12 @@ $(function(){
 		"bStateSave": true,//状态保存
 		"aoColumnDefs": [
 		  //{"bVisible": false, "aTargets": [ 3 ]} //控制列的隐藏显示
-		  {"orderable":false,"aTargets":[0,8,9]}// 制定列不参与排序
+		  {"orderable":false,"aTargets":[0]}// 制定列不参与排序
 		]
 	});
 	
 });
+
 /*用户-添加*/
 function member_add(title,url,w,h){
 	layer_show(title,url,w,h);
@@ -100,10 +98,10 @@ function member_add(title,url,w,h){
 
 /*用户-删除*/
 function member_del(obj,id){
-	layer.confirm('确认要删除吗？',function(index){
-		$.ajax({
+	layer.confirm('确认要删除吗？',function(index){		
+		 $.ajax({
 			type: 'POST',
-			url: '',
+			url: '../lservlet/DeleteUserServlet?userid='+id,
 			dataType: 'json',
 			success: function(data){
 				$(obj).parents("tr").remove();
@@ -113,6 +111,9 @@ function member_del(obj,id){
 				console.log(data.msg);
 			},
 		});		
+	},function(){
+		
+		
 	});
 }
 </script> 

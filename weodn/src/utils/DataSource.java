@@ -94,6 +94,31 @@ public class DataSource {
 		return 0;
 	}
 
+	public static int updatede(String sql,Object...params) {
+		Connection connection = getConnection();
+		PreparedStatement ps = null;
+		try {
+			System.out.println(sql);
+			ps = connection.prepareStatement(sql);// 获取预编译操作对象
+			for (int i = 0; i < params.length; i++) {
+				ps.setObject(i + 1, params[i]);
+			}
+			return ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (ps != null) {
+					ps.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return 0;
+	}
+	
+	
 	/**
 	 * 查询数据
 	 * 

@@ -126,10 +126,10 @@ public class DBHelper {
 	
 	
 	
-//	public static int delete(Class<?> type, String where, Object... params) {
-//		return DataSource.update(
-//				"delete from " + DataUtil.toColumnByFieldName(type.getSimpleName()) + " where 1=1 " + where, params);
-//	}
+	public static int delete( String where, Object... params) {
+		return DataSource.updatede(
+				"delete from users where 1=1 " + where, params);
+	}
 
 	public static <T> List<T> select(String sql, Class<T> type, Object... params) {
 		// select ... from tablename where ....
@@ -205,12 +205,17 @@ public class DBHelper {
 		}
 	}
 
-//	public static void main(String[] args) throws ClassNotFoundException, SQLException {
-//		DBHelper.init("com.mysql.jdbc.Driver", "jdbc:mysql://localhost:3306/weod", "root", "root");
-//		DBHelper.delete(Student.class, "and id=?", 3);
+//	public static void main(String[] args){
+//		try {
+//			DBHelper.init("com.mysql.jdbc.Driver", "jdbc:mysql://localhost:3306/weod", "root", "root");
+//		} catch (ClassNotFoundException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		DBHelper.delete("userid=?","1");
 //		DBHelper.startPage(3, 2);
 //		List<Luser> list = DBHelper.select("select * from users where ?=?", Luser.class,1,1);
-//		System.out.println(list.get(0));
+//		System.out.println(list);
 //		PageInfo<Student> stus=new PageInfo<>(list);
 //		System.out.println(stus);
 

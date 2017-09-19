@@ -17,14 +17,14 @@ import utils.DataSource;
 /**
  * Servlet implementation class UserListServlet
  */
-@WebServlet("/UserListServlet")
-public class UserListServlet extends HttpServlet {
+//@WebServlet("/DeleteUserServlet")
+public class DeleteUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UserListServlet() {
+    public DeleteUserServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -52,12 +52,9 @@ public class UserListServlet extends HttpServlet {
 			DataSource.init("com.mysql.jdbc.Driver", "jdbc:mysql://localhost:3306/weod", "root", "root");
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
-		}
-		List<Luser> list=null;
-		String sql="select * form users where ?=?";
-		list=DBHelper.select(sql, Luser.class, 1,1);		
-		HttpSession session = request.getSession();
-		session.setAttribute("userlist", list);
+		}		
+		String userid=(String)request.getAttribute("userid");
+		DBHelper.delete("and userid=?", userid);
 		DBHelper.close();
 	}
 
