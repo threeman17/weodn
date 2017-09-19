@@ -40,19 +40,6 @@ public class LoginFilter extends HttpServlet implements Filter {
 		res.setContentType("text/html;charset=UTF-8");
 		String uri=req.getRequestURI();
 		HttpSession session=req.getSession();		
-		if(uri.contains("/userlist")){
-			Luser userinfo=(Luser)session.getAttribute("LOGIN_STATUS");
-			String rootid=userinfo.getUserid();
-			String rootpassword=userinfo.getPassword();
-			if(rootid.equals("root")&&rootpassword.equals("root")){
-				chain.doFilter(request, response);
-				return;
-			}else
-			{
-				res.getWriter().write("进入失败！");
-				return;
-			}
-		}
 		
 		
 		
@@ -66,10 +53,23 @@ public class LoginFilter extends HttpServlet implements Filter {
 		}		
 		Object status=session.getAttribute("LOGIN_STATUS");		
 		if(status==null){
-			System.out.println(req.getContextPath());
 			res.sendRedirect(req.getContextPath()+"/jsp/login.html");
 			return;
 		}
+		if(uri.contains("/userlist")){			
+			Luser userinfo=(Luser)session.getAttribute("LOGIN_STATUS");
+			String rootid=userinfo.getUserid();
+			String rootpassword=userinfo.getPassword();
+			if(rootid.equals("root")&&rootpassword.equals("root")){
+				chain.doFilter(request, response);
+				return;
+			}else
+			{
+				res.getWriter().write("进入失败！");
+				return;
+			}
+		}
+		
 		chain.doFilter(request, response);
 	}
 
