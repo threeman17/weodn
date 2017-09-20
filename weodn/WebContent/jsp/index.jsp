@@ -111,9 +111,19 @@
                 <div class="title">微应用</div>
             </div>
              <div class="shortcut"
-                 onclick="Win10.openUrl('https://wac.elca.org/we/wordeditorframe.aspx?edit=1&WOPISrc=http%3a%2f%2f103.56.113.188%3a8001%2fwopi%2ffiles%2fdemoeditnew.docx&access_token=4bn84tidSURDQG02rclYo1vNxl7jAdBtkXNXbKzakV2p20pTRlm3mw%3d%3d&action=edit','<img class=\'icon\' src=\'./img/icon/store.png\'/>word 2017')">
+                 onclick="Win10.openUrl('https://wac.elca.org/we/wordeditorframe.aspx?edit=1&WOPISrc=http%3a%2f%2f103.56.113.188%3a8001%2fwopi%2ffiles%2fdemoeditnew.docx&access_token=4bn84tidSURDQG02rclYo1vNxl7jAdBtkXNXbKzakV2p20pTRlm3mw%3d%3d&action=edit','<img class=\'icon\' src=\'./img/icon/word.png\'/>word 2017')">
                 <img class="icon" src="./img/icon/word.png"/>
                 <div class="title">word 2017</div>
+            </div>
+             <div class="shortcut"
+                 onclick="Win10.openUrl('https://wac.elca.org/x/_layouts/xlviewerinternal.aspx?edit=1&WOPISrc=http%3a%2f%2f103.56.113.188%3a8001%2fwopi%2ffiles%2fdemoeditnew.xlsx&access_token=4bn84tidSUQxXVV1vPT3CWO%2bv%2fqQcPJTutgKrMb7AafYv%2fx1uEvRhQ%3d%3d&action=edit','<img class=\'icon\' src=\'./img/icon/excel.png\'/>excel 2017')">
+                <img class="icon" src="./img/icon/excel.png"/>
+                <div class="title">excel 2017</div>
+            </div>
+             <div class="shortcut"
+                 onclick="Win10.openUrl('https://wac.elca.org/p/PowerPointFrame.aspx?PowerPointView=EditView&WOPISrc=http%3a%2f%2f103.56.113.188%3a8001%2fwopi%2ffiles%2fdemoeditnew.pptx&access_token=4bn84tidSURfmOinpaV2my1Cb0AEk8w4Y8rhU88Y4%2b9%2fxqXsGCxqlA%3d%3d&action=edit','<img class=\'icon\' src=\'./img/icon/ppt.png\'/>powerpoint 2017')">
+                <img class="icon" src="./img/icon/ppt.png"/>
+                <div class="title">powerpoint 2017</div>
             </div>
         </div>
     </div>
