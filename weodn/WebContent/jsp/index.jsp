@@ -105,6 +105,11 @@
                 <img class="icon" src="./img/icon/weodmusic.png"/>
                 <div class="title">微音乐</div>
             </div>
+            <div class="shortcut"
+                 onclick="Win10.openUrl('http://localhost:8080/weodn/jsp/weodapp/','<img class=\'icon\' src=\'./img/icon/store.png\'/>微音乐')">
+                <img class="icon" src="./img/icon/store.png"/>
+                <div class="title">微应用</div>
+            </div>
         </div>
     </div>
     <div id="win10-menu" class="hidden">

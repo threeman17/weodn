@@ -122,12 +122,13 @@
 $(function(){
 	$.ajax({
 		type:"get",
-		url:"http://localhost:8080/weodapp/applist.action",
+		url:"http://localhost:8080/weodn/lservlet/GetAppsServlet",
 		async:true,
 		success:function(data){
+			data=JSON.parse(data);
 			var str="";
 			for (var i=0;i<data.length;i++) {
-				str+=' <div class="col-lg-3 col-md-6 col-sm-6 work"> <a href="javascript:void(0)" class="work-box"> <div class="app-img-content"><img src="'+data[i].img_src+'" alt="" class="app-img"></div>' +
+				str+=' <div class="col-lg-3 col-md-6 col-sm-6 work"> <a href="javascript:void(0)" class="work-box"> <div class="app-img-content"><img src="'+data[i].imgsrc+'" alt="" class="app-img"></div>' +
 		        ' <div class="overlay">' +
 		          ' <div class="overlay-caption">' +
 		            ' <h3 class="app-name">'+data[i].name+'</h3>' +
