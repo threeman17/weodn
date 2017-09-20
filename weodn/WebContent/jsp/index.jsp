@@ -106,9 +106,14 @@
                 <div class="title">微音乐</div>
             </div>
             <div class="shortcut"
-                 onclick="Win10.openUrl('http://localhost:8080/weodn/jsp/weodapp/','<img class=\'icon\' src=\'./img/icon/store.png\'/>微音乐')">
+                 onclick="Win10.openUrl('http://localhost:8080/weodn/jsp/weodapp/','<img class=\'icon\' src=\'./img/icon/store.png\'/>微应用')">
                 <img class="icon" src="./img/icon/store.png"/>
                 <div class="title">微应用</div>
+            </div>
+             <div class="shortcut"
+                 onclick="Win10.openUrl('https://wac.elca.org/we/wordeditorframe.aspx?edit=1&WOPISrc=http%3a%2f%2f103.56.113.188%3a8001%2fwopi%2ffiles%2fdemoeditnew.docx&access_token=4bn84tidSURDQG02rclYo1vNxl7jAdBtkXNXbKzakV2p20pTRlm3mw%3d%3d&action=edit','<img class=\'icon\' src=\'./img/icon/store.png\'/>word 2017')">
+                <img class="icon" src="./img/icon/word.png"/>
+                <div class="title">word 2017</div>
             </div>
         </div>
     </div>
