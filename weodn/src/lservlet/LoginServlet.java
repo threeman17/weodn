@@ -44,7 +44,7 @@ public class LoginServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		List<Luser> list=null;
-		list = DBHelper.select("select * from users where userid=? and password=?", Luser.class, userid,
+		list = DBHelper.select("select * from users where userid=? and password=?", Luser.class,userid,
 				password);
 		System.out.println(list);
 		if (list.isEmpty()||list==null) {

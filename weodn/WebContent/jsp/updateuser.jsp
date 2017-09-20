@@ -57,7 +57,42 @@
             border-radius: 5px;
             margin-bottom: 11px;
         }
-
+        
+		.a-upload {
+			font-size: 15px;
+		    padding: 4px 10px;
+		    height: 15px;
+		    line-height: 20px;
+		    position: relative;
+		    cursor: pointer;
+		    color: graytext;
+		    background: #fafafa;
+		    text-decoration:none;
+		    border: 1px solid #ddd;
+		    border-radius: 4px;
+		    overflow: hidden;
+		    display: inline-block;
+		    *display: inline;
+		    *zoom: 1
+		}
+		
+		.a-upload  input {
+		    position: absolute;
+		    font-size: 100px;
+		    right: 0;
+		    top: 0;
+		    opacity: 0;
+		    filter: alpha(opacity=0);
+		    cursor: pointer
+		}
+		
+		.a-upload:hover {
+		    color: #444;
+		    background: #eee;
+		    border-color: #ccc;
+		    text-decoration: none
+		}
+		
         .login-username, .login-password {
             width: 91%;
             font-size: 13px;
@@ -104,7 +139,9 @@
         <div class="win10-login-box-square">
             <img src="${LOGIN_STATUS.headpic}" class="content"/>
         </div>
-        <p style="font-size: 24px;color: white;text-align: center"><button style="background-color: #787878;color: white;border-radius: 5px;">选择</button></p>
+        <p style="font-size: 24px;color: white;text-align: center">
+        <a href="javascript:;" class="a-upload">修改头像<input type="file" class="" name="headpic"></a>
+        </p>
         <form target="_self" action="../lservlet/UpdateUserServlet"> 
                    
           <font color="white">  昵称：<input type="text"  class="login-username" name="nickname" value="${LOGIN_STATUS.nickname}">
@@ -115,5 +152,16 @@
         </form>
     </div>
 </div>
+	<script>
+		
+		function himg(){
+			$.ajax({
+				type:"post",
+				url:"",
+				async:true
+			});
+		}
+	</script>
+
 </body>
 </html>

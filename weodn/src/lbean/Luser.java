@@ -17,14 +17,18 @@ public class Luser {
 		private String headpic;
 
 		private String nickname;
-
+		
+		private String wallpaper;
+		
+		
+		
 		public Luser() {
 			super();
 			// TODO Auto-generated constructor stub
 		}
 
 		public Luser(String userid, String password, String email, Date createtime, Date updatetime, String headpic,
-				String nickname) {
+				String nickname, String wallpaper) {
 			super();
 			this.userid = userid;
 			this.password = password;
@@ -33,6 +37,7 @@ public class Luser {
 			this.updatetime = updatetime;
 			this.headpic = headpic;
 			this.nickname = nickname;
+			this.wallpaper = wallpaper;
 		}
 
 		public String getUserid() {
@@ -91,11 +96,12 @@ public class Luser {
 			this.nickname = nickname;
 		}
 
-		@Override
-		public String toString() {
-			return "Luser [userid=" + userid + ", password=" + password + ", email=" + email + ", createtime="
-					+ createtime + ", updatetime=" + updatetime + ", headpic=" + headpic + ", nickname=" + nickname
-					+ "]";
+		public String getWallpaper() {
+			return wallpaper;
+		}
+
+		public void setWallpaper(String wallpaper) {
+			this.wallpaper = wallpaper;
 		}
 
 		@Override
@@ -109,6 +115,7 @@ public class Luser {
 			result = prime * result + ((password == null) ? 0 : password.hashCode());
 			result = prime * result + ((updatetime == null) ? 0 : updatetime.hashCode());
 			result = prime * result + ((userid == null) ? 0 : userid.hashCode());
+			result = prime * result + ((wallpaper == null) ? 0 : wallpaper.hashCode());
 			return result;
 		}
 
@@ -156,8 +163,20 @@ public class Luser {
 					return false;
 			} else if (!userid.equals(other.userid))
 				return false;
+			if (wallpaper == null) {
+				if (other.wallpaper != null)
+					return false;
+			} else if (!wallpaper.equals(other.wallpaper))
+				return false;
 			return true;
 		}
-		 
+
+		@Override
+		public String toString() {
+			return "Luser [userid=" + userid + ", password=" + password + ", email=" + email + ", createtime="
+					+ createtime + ", updatetime=" + updatetime + ", headpic=" + headpic + ", nickname=" + nickname
+					+ ", wallpaper=" + wallpaper + "]";
+		}
+	
 		
 }
