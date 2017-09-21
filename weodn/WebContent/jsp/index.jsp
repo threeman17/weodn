@@ -71,8 +71,20 @@
                 'animated flip',
                 'animated bounceIn',
             ], 0.01);
+            
+            $.ajax({
+            	type:"get",
+            	url:"http://localhost:8080/weodmsg/msglist.action",
+            	async:true,
+            	dataType:"jsonp",
+            	jsonp:"callback",
+            	success:function(data){
+            		for (var i = 0; i < data.length; i++) {
+            			 Win10.newMsg(data[i].title, data[i].content);
+					}
+            	}
+            })
         });
-       window.demo=function(){alert("hello")}
 
     </script>
 </head>
