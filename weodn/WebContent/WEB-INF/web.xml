@@ -49,12 +49,20 @@
     <servlet-name>GetAppsServlet</servlet-name>
     <url-pattern>/lservlet/GetAppsServlet</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
     <servlet-name>GetUserWallpaperServlet</servlet-name>
     <servlet-class>lservlet.GetUserWallpaperServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>GetUserWallpaperServlet</servlet-name>
     <url-pattern>/lservlet/GetUserWallpaperServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AddAppServlet</servlet-name>
+    <servlet-class>lservlet.AddAppServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddAppServlet</servlet-name>
+    <url-pattern>/lservlet/AddAppServlet</url-pattern>
   </servlet-mapping>
 </web-app>

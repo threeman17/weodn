@@ -67,8 +67,13 @@ public class DBHelper {
 //		sb.deleteCharAt(sb.length() - 1);
 //		sb.append(")");
 //		System.out.println(sb);
-//		return DataSource.update(sb.toString(), values.toArray());
+//		return DataSource.updatede(sb.toString(), values.toArray());
 //	}
+	
+		
+	
+	
+	
 
 //	public static int update(Object obj, String where, Object... params) throws SQLException {
 //		// update tableName set column=?,column2=?... where

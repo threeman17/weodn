@@ -40,12 +40,16 @@ public class GetUserWallpaperServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session=request.getSession();
 		Luser user=(Luser)session.getAttribute("LOGIN_STATUS");
-		String wallpaper=user.getWallpaper();
+		String wallpaper=user.getWallpaper();//从session中取得当前用户wallpaper
 		AppListDao app=new AppListDao();
 		UserWallpaperDao dao=new UserWallpaperDao();
-		List<UserWallpaper> list=dao.getwallpaper(wallpaper);
+		if(wallpaper==null){
+			response.getWriter().write("您还没有添加应用！");
+			return ;
+		}
+		List<UserWallpaper> list=dao.getwallpaper(wallpaper);//获取userwallpaper表中所有wallpaper（列）等于wallpaper的对象
 		if(list==null){
-			response.getWriter().write("还没有添加应用！");
+			response.getWriter().write("您还没有添加应用！");
 			return ;
 		}
 		List<Applist> ls=new ArrayList<>();

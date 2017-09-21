@@ -29,10 +29,7 @@ public class AppListDao {
 			e.printStackTrace();
 		}
 		String sql="select * from applist where id=?";
-		list=DBHelper.select(sql, Applist.class,id);
-		
-		
-		
+		list=DBHelper.select(sql, Applist.class,id);	
 		return list;
 	}
 }
