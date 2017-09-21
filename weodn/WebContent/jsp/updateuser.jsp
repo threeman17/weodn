@@ -140,7 +140,7 @@
             <img src="${LOGIN_STATUS.headpic}" class="content"/>
         </div>
         <p style="font-size: 24px;color: white;text-align: center">
-        <a href="javascript:;" class="a-upload">修改头像<input type="file" class="" name="headpic"></a>
+        <a href="javascript:;" class="a-upload">修改头像<input type="file" class="" name="headpic" formenctype="multipart/form-data"></a>
         </p>
         <form target="_self" action="../lservlet/UpdateUserServlet"> 
                    
@@ -153,7 +153,6 @@
     </div>
 </div>
 	<script>
-		
 		function himg(){
 			$.ajax({
 				type:"post",
