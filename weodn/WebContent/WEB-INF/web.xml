@@ -50,12 +50,12 @@
     <url-pattern>/lservlet/GetAppsServlet</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>GetUserWallpaperServlet</servlet-name>
-    <servlet-class>lservlet.GetUserWallpaperServlet</servlet-class>
+    <servlet-name>GetUserAppServlet</servlet-name>
+    <servlet-class>lservlet.GetUserAppServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>GetUserWallpaperServlet</servlet-name>
-    <url-pattern>/lservlet/GetUserWallpaperServlet</url-pattern>
+    <servlet-name>GetUserAppServlet</servlet-name>
+    <url-pattern>/lservlet/GetUserAppServlet</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>AddAppServlet</servlet-name>

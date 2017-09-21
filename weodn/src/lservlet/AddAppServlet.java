@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import lbean.Luser;
-import ldao.UserWallpaperDao;
+import ldao.UserAppDao;
 
 /**
  * Servlet implementation class AddAppServlet
@@ -29,12 +29,12 @@ public class AddAppServlet extends HttpServlet {
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String appid=request.getParameter("appid");
+		String keyid=request.getParameter("keyid");
 		HttpSession session=request.getSession();
 		Luser user=(Luser)session.getAttribute("LOGIN_STATUS");
-		String wallpaper=user.getWallpaper();
-		UserWallpaperDao dao=new UserWallpaperDao();
-		dao.insertapp(wallpaper, appid);
+		String userid=user.getUserid();
+		UserAppDao dao=new UserAppDao();
+		dao.insert(userid,keyid);
 	}
 
 }

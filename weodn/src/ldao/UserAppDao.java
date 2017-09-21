@@ -3,30 +3,30 @@ package ldao;
 import java.util.ArrayList;
 import java.util.List;
 
-import lbean.UserWallpaper;
+import lbean.UserApp;
 import utils.DBHelper;
 import utils.DataSource;
 
-public class UserWallpaperDao {
-		public List<UserWallpaper> getwallpaper(String wallpaper){
-			List<UserWallpaper> list=new ArrayList<>();
+public class UserAppDao {
+		public List<UserApp> getApp(String userid){
+			List<UserApp> list=new ArrayList<>();
 			try {
 				DataSource.init("com.mysql.jdbc.Driver", "jdbc:mysql://localhost:3306/weod", "root", "root");
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			}
-			String sql="select * from userwallpaper where wallpaper=?";
-			list=DBHelper.select(sql, UserWallpaper.class,wallpaper);
+			String sql="select * from userapp where userid=?";
+			list=DBHelper.select(sql, UserApp.class,userid);
 			return list;
 		}
 		
-		public void insertapp(String wallpaper,String id){
+		public void insert(String userid,String id){
 			try {
 				DataSource.init("com.mysql.jdbc.Driver", "jdbc:mysql://localhost:3306/weod", "root", "root");
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			}
-			String sql="insert into userwallpaper (wallpaper,id) values (?,?)";
-			DataSource.updatede(sql.toString(), wallpaper,id);
+			String sql="insert into userapp (userid,id) values (?,?)";
+			DataSource.updatede(sql.toString(), userid,id);
 		}
 }

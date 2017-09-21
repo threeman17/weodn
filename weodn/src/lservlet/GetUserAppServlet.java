@@ -15,21 +15,21 @@ import com.google.gson.Gson;
 
 import lbean.Applist;
 import lbean.Luser;
-import lbean.UserWallpaper;
+import lbean.UserApp;
 import ldao.AppListDao;
-import ldao.UserWallpaperDao;
+import ldao.UserAppDao;
 
 /**
  * Servlet implementation class GetUserWallpaperServlet
  */
 //@WebServlet("/GetUserWallpaperServlet")
-public class GetUserWallpaperServlet extends HttpServlet {
+public class GetUserAppServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GetUserWallpaperServlet() {
+    public GetUserAppServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,25 +40,20 @@ public class GetUserWallpaperServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session=request.getSession();
 		Luser user=(Luser)session.getAttribute("LOGIN_STATUS");
-		String wallpaper=user.getWallpaper();//从session中取得当前用户wallpaper
+		String userid=user.getUserid();//从session中取得当前用户userid
 		AppListDao app=new AppListDao();
-		UserWallpaperDao dao=new UserWallpaperDao();
-		if(wallpaper==null){
-			response.getWriter().write("您还没有添加应用！");
-			return ;
-		}
-		List<UserWallpaper> list=dao.getwallpaper(wallpaper);//获取userwallpaper表中所有wallpaper（列）等于wallpaper的对象
+		UserAppDao dao=new UserAppDao();
+		List<UserApp> list=dao.getApp(userid);//获取userapp表中所有userid（列）等于userid的对象
 		if(list==null){
 			response.getWriter().write("您还没有添加应用！");
 			return ;
 		}
 		List<Applist> ls=new ArrayList<>();
-		for (UserWallpaper userWallpaper : list) {
-			ls.add(app.idgetapps(userWallpaper.getid()).get(0));
-			
+		for (UserApp UserApp : list) {
+			ls.add(app.idgetapps(UserApp.getId()).get(0));			
 		}
 		Gson gson=new Gson();
-		session.setAttribute("PAPER", gson.toJson(ls));
+		session.setAttribute("apps", gson.toJson(ls));
 		response.setHeader("Content-type","text/html;charset=UTF-8");
 		OutputStream stream=response.getOutputStream();
 		stream.write(gson.toJson(ls).getBytes("UTF-8"));
