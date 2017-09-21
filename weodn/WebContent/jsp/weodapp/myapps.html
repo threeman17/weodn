@@ -60,7 +60,7 @@
     <div class="header-content clearfix"> <a class="logo" href="index.html"><img src="images/logo.png" alt="" style="height: 50px;width: 50px;"></a>
       <nav class="navigation" role="navigation">
         <ul class="primary-nav">
-          <li><a href="index.html">推荐应用</a></li>
+           <li><a href="index.html">推荐应用</a></li>
            <li><a href="list.html">应用列表</a></li>
            <li><a href="myapps.html">我的应用</a></li>
            <li><a href="dev.html">开发者中心</a></li>
@@ -122,7 +122,7 @@
 $(function(){
 	$.ajax({
 		type:"get",
-		url:"http://localhost:8080/weodn/lservlet/GetAppsServlet",
+		url:"http://localhost:8080/weodn/lservlet/GetUserWallpaperServlet",
 		async:true,
 		success:function(data){
 			data=JSON.parse(data);
