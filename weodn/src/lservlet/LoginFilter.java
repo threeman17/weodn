@@ -43,26 +43,28 @@ public class LoginFilter extends HttpServlet implements Filter {
 			chain.doFilter(request, response);
 			return;
 		}
+		if(uri.contains("zhuce")){
+			chain.doFilter(request, response);
+			return;
+		}
 		if(uri.contains("Login")){
 			chain.doFilter(request, response);
 			return;
 		}
-		Object ls=session.getAttribute("ls");		
-		if(uri.contains("userlist.jsp")){	
-			if(ls==null){				
-				res.sendRedirect(req.getContextPath()+"/lservlet/UserlistServlet");
-				return;	
-			}else{
-				chain.doFilter(request, response);				
-				}
+		if(uri.contains("UserlistServlet")){
+			chain.doFilter(request, response);
 			return;
-		}	
+		}			
+		if(uri.contains("userlist")){			
+			chain.doFilter(request, response);
+			return;	
+			
+		}
 		Object status=session.getAttribute("LOGIN_STATUS");		
 		if(status==null){
 			res.sendRedirect(req.getContextPath()+"/jsp/login.html");
 			return;
-		}		
-		
+		}				
 		chain.doFilter(request, response);
 	}
 

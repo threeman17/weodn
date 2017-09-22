@@ -36,10 +36,8 @@ public class UserlistServlet extends HttpServlet {
 			DataSource.init("com.mysql.jdbc.Driver", "jdbc:mysql://localhost:3306/weod", "root", "root");
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
-		}
-		
+		}		
 		HttpSession session = request.getSession();
-		session.setAttribute("ls", 2);		
 		List<Luser> list0=null;
 		String sql="select * from users where ?=?";
 		list0=DBHelper.select(sql, Luser.class,1,1);					
