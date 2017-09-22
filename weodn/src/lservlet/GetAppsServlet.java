@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
 
@@ -32,7 +33,10 @@ public class GetAppsServlet extends HttpServlet {
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		AppListDao dao=new AppListDao();
-		Gson gson=new Gson();		
+		Gson gson=new Gson();	
+		HttpSession session = request.getSession();
+		session.setAttribute("apps", dao.getapps());
+		System.out.println(dao.getapps());
 		response.setHeader("Content-type","text/html;charset=UTF-8");
 		OutputStream stream=response.getOutputStream();
 		stream.write(gson.toJson(dao.getapps()).getBytes("UTF-8"));
