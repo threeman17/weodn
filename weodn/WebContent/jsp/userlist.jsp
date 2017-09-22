@@ -19,6 +19,7 @@
 <link rel="stylesheet" type="text/css" href="lib/Hui-iconfont/1.0.8/iconfont.css" />
 <link rel="stylesheet" type="text/css" href="static/h-ui.admin/skin/default/skin.css" id="skin" />
 <link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/style.css" />
+
 <!--[if IE 6]>
 <script type="text/javascript" src="lib/DD_belatedPNG_0.0.8a-min.js" ></script>
 <script>DD_belatedPNG.fix('*');</script>
@@ -51,7 +52,6 @@
 			</tr>
 		</thead>
 		<tbody>
-
 			<c:forEach items="${userlist}" var="second">					
 					<tr class="text-c">
 						<td>${second.userid}</td>
@@ -85,16 +85,11 @@ $(function(){
 		"bStateSave": true,//状态保存
 		"aoColumnDefs": [
 		  //{"bVisible": false, "aTargets": [ 3 ]} //控制列的隐藏显示
-		  {"orderable":false,"aTargets":[0]}// 制定列不参与排序
+		  {"orderable":false,"aTargets":[0,8,9]}// 制定列不参与排序
 		]
 	});
 	
 });
-
-/*用户-添加*/
-function member_add(title,url,w,h){
-	layer_show(title,url,w,h);
-}
 
 /*用户-删除*/
 function member_del(obj,id){

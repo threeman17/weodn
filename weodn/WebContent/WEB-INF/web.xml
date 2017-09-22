@@ -65,4 +65,12 @@
     <servlet-name>AddAppServlet</servlet-name>
     <url-pattern>/lservlet/AddAppServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>UserlistServlet</servlet-name>
+    <servlet-class>lservlet.UserlistServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserlistServlet</servlet-name>
+    <url-pattern>/lservlet/UserlistServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

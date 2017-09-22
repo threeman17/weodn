@@ -54,23 +54,10 @@ public class LoginServlet extends HttpServlet {
 		Luser userinfo = list.get(0);
 		HttpSession session = request.getSession();
 		session.setAttribute("LOGIN_STATUS", userinfo);
-		System.out.println(userinfo);
-		String rootid=userinfo.getUserid();
-		String rootpassword=userinfo.getPassword();
-		
-		if(rootid.equals("root")&&rootpassword.equals("root")){
-			System.out.println(rootid+" "+rootpassword);			
-			List<Luser> list0=null;
-			String sql="select * from users where ?=?";
-			list0=DBHelper.select(sql, Luser.class,1,1);					
-			session.setAttribute("userlist",list0);
-			DBHelper.close();
-			System.out.println(list0);
-			response.sendRedirect(request.getContextPath() + "/jsp/userlist.jsp");
-		}else{
+		System.out.println(userinfo);			
 		DBHelper.close();
 		response.sendRedirect(request.getContextPath() + "/jsp/index.jsp");
-			}
+			
 		}
 
 }

@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import lbean.Luser;
 
 
 /**
@@ -40,9 +39,6 @@ public class LoginFilter extends HttpServlet implements Filter {
 		res.setContentType("text/html;charset=UTF-8");
 		String uri=req.getRequestURI();
 		HttpSession session=req.getSession();		
-		
-		
-		
 		if(uri.contains("/login")){
 			chain.doFilter(request, response);
 			return;
@@ -50,26 +46,22 @@ public class LoginFilter extends HttpServlet implements Filter {
 		if(uri.contains("Login")){
 			chain.doFilter(request, response);
 			return;
-		}		
+		}
+		Object ls=session.getAttribute("ls");		
+		if(uri.contains("userlist.jsp")){	
+			if(ls==null){				
+				res.sendRedirect(req.getContextPath()+"/lservlet/UserlistServlet");
+				return;	
+			}else{
+				chain.doFilter(request, response);				
+				}
+			return;
+		}	
 		Object status=session.getAttribute("LOGIN_STATUS");		
 		if(status==null){
 			res.sendRedirect(req.getContextPath()+"/jsp/login.html");
 			return;
-		}
-		if(uri.contains("/userlist")){			
-			Luser userinfo=(Luser)session.getAttribute("LOGIN_STATUS");
-			String rootid=userinfo.getUserid();
-			String rootpassword=userinfo.getPassword();
-			if(rootid.equals("root")&&rootpassword.equals("root")){
-//				request.getRequestDispatcher("../lservlet/LoginServlet").forward(request,response);
-				chain.doFilter(request, response);
-				return;
-			}else
-			{
-				res.getWriter().write("进入失败！");
-				return;
-			}
-		}
+		}		
 		
 		chain.doFilter(request, response);
 	}
