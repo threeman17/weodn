@@ -36,6 +36,7 @@ public class GetAppsServlet extends HttpServlet {
 		Gson gson=new Gson();	
 		HttpSession session = request.getSession();
 		session.setAttribute("apps", dao.getapps());
+		System.out.println(dao.getapps());
 		response.setHeader("Content-type","text/html;charset=UTF-8");
 		OutputStream stream=response.getOutputStream();
 		stream.write(gson.toJson(dao.getapps()).getBytes("UTF-8"));
