@@ -43,10 +43,6 @@ public class LoginFilter extends HttpServlet implements Filter {
 			chain.doFilter(request, response);
 			return;
 		}
-		if(uri.contains("/jsp")&&status==null){
-			res.sendRedirect(req.getContextPath()+"/jsp/login.html");
-			return;
-		}		
 		if(uri.contains("useradd")){
 			chain.doFilter(request, response);
 			return;
@@ -55,14 +51,22 @@ public class LoginFilter extends HttpServlet implements Filter {
 			chain.doFilter(request, response);
 			return;
 		}
-		if(uri.contains("UserlistServlet")){
-			chain.doFilter(request, response);
-			return;
-		}			
 		if(uri.contains("userlist")){			
 			chain.doFilter(request, response);
 			return;	
 			}
+		if(uri.contains("UserAddServlet")){			
+			chain.doFilter(request, response);
+			return;
+			}
+		if(uri.contains("/jsp")&&status==null){
+			res.sendRedirect(req.getContextPath()+"/jsp/login.html");
+			return;
+		}				
+		if(uri.contains("UserlistServlet")){
+			chain.doFilter(request, response);
+			return;
+		}					
 		if(uri.contains("js")){			
 				chain.doFilter(request, response);
 				return;
@@ -78,12 +82,7 @@ public class LoginFilter extends HttpServlet implements Filter {
 		if(uri.contains("css")){			
 			chain.doFilter(request, response);
 			return;
-			}
-		if(uri.contains("UserAddServlet")){			
-			chain.doFilter(request, response);
-			return;
-			}		
-			
+			}	
 		if(status==null){
 			res.sendRedirect(req.getContextPath()+"/jsp/login.html");
 			return;

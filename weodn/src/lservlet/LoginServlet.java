@@ -1,6 +1,7 @@
 package lservlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -48,7 +49,14 @@ public class LoginServlet extends HttpServlet {
 				password);
 		System.out.println(list);
 		if (list.isEmpty()||list==null) {
-			response.getWriter().write("登陆失败！");
+			PrintWriter out=response.getWriter();
+			out.flush();
+		    out.println("<script>");
+		    out.println("alert('登录失败！');");
+		    out.println("history.back();");
+		    out.println("</script>");
+		    out.close();
+		    return;
 //			response.sendRedirect(request.getContextPath() + "/jsp/login.html");
 		}
 		Luser userinfo = list.get(0);

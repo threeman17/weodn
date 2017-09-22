@@ -1,6 +1,11 @@
 package lservlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -41,8 +46,11 @@ public class UpdateUserServlet extends HttpServlet {
 		String nickname=request.getParameter("nickname");
 		String email=request.getParameter("email");
 		String password=request.getParameter("password");
-		DBHelper.updateuser("userid='"+userid+"'", "nickname='"+nickname+"'","email='"+email+"'","password='"+password+"'");
-		response.getWriter().write("提交成功");
+		Date date=new Date();     //获取一个Date对象
+		DateFormat simpleDateFormat= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");   //创建一个格式化日期对象
+		String punchTime = simpleDateFormat.format(date);
+		DBHelper.updateuser("userid='"+userid+"'", "nickname='"+nickname+"'","email='"+email+"'","password='"+password+"'","updatetime='"+punchTime+"'");
+	    response.getWriter().write("提交成功！");
 		response.setHeader("refresh","1;url=../jsp/showuser.jsp");
 		DBHelper.close();
 	}

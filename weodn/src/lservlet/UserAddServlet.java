@@ -1,6 +1,8 @@
 package lservlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -31,12 +33,22 @@ public class UserAddServlet extends HttpServlet {
 		String nickname=request.getParameter("nickname");
 		String password=request.getParameter("password");
 		String email=request.getParameter("email");
+		response.setHeader("text/html", "charset=utf-8"); 
 		LuserDao dao=new LuserDao();
-		dao.add(userid, nickname, password, email);
-		response.setHeader("Content-type: text/html", "charset=utf-8"); 
-		response.getWriter().write("注册成功!");
-		response.setHeader("refresh","1;url=../jsp/login.html");
-		
+		PrintWriter out = response.getWriter();
+		if(userid.isEmpty()||nickname.isEmpty()||password.isEmpty()||email.isEmpty()){			   
+			    out.flush();
+			    out.println("<script>");
+			    out.println("alert('请将信息填写完整！');");
+			    out.println("history.back();");
+			    out.println("</script>");
+			return;
+		}
+		dao.add(userid, nickname, password, email);					   
+	    out.write("注册成功！");
+	    response.setHeader("refresh","1;url=../jsp/login.html");
+	    out.close();
+	
 	}
 
 }
