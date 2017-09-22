@@ -35,13 +35,18 @@ public class LoginFilter extends HttpServlet implements Filter {
 		HttpServletRequest req=(HttpServletRequest) request;
 		HttpServletResponse res=(HttpServletResponse) response;	
 		req.setCharacterEncoding("UTF-8");
-		res.setContentType("text/html;charset=UTF-8");
+		res.setContentType("text/html;charset=UTF-8");		
 		String uri=req.getRequestURI();
-		HttpSession session=req.getSession();		
+		HttpSession session=req.getSession();
+		Object status=session.getAttribute("LOGIN_STATUS");	
 		if(uri.contains("/login")){
 			chain.doFilter(request, response);
 			return;
 		}
+		if(uri.contains("/jsp")&&status==null){
+			res.sendRedirect(req.getContextPath()+"/jsp/login.html");
+			return;
+		}		
 		if(uri.contains("useradd")){
 			chain.doFilter(request, response);
 			return;
@@ -78,7 +83,7 @@ public class LoginFilter extends HttpServlet implements Filter {
 			chain.doFilter(request, response);
 			return;
 			}		
-		Object status=session.getAttribute("LOGIN_STATUS");		
+			
 		if(status==null){
 			res.sendRedirect(req.getContextPath()+"/jsp/login.html");
 			return;
