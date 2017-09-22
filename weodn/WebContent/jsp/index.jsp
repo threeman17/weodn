@@ -153,7 +153,7 @@
                  onclick="del()">
                 <i class="pnge" ></i>退出
             </div>
-            <div class="sub-item" onclick="Win10.openUrl('./showuser.jsp','<img class=\'icon\' src=\'./img/icon/asd.png\'/>个人信息')"><i class="pngm"></i>个人信息</div>
+            <div class="sub-item" onclick="Win10.openUrl('./showuser.jsp','<img class=\'icon\' src=\'./img/icon/asd.png\'/>资料卡')"><i class="pngm"></i>资料卡</div>
             <div class="sub-item" onclick="Win10.openUrl('./updateuser.jsp','<img class=\'icon\' src=\'./img/icon/update.png\'/>编辑资料')"><i class="pngt"></i>编辑资料</div>           
         </div>
         <div class="blocks">

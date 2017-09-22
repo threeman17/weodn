@@ -18,16 +18,20 @@
 	.head{height: 150px;}
 	.floor{height: 100px;}
 	.content{height: 400px;}
-	.pic{background-size: 100%;display: inline-block;height: auto;max-width: 100%;}					
+	.pic{background-size: 100%;display: inline-block;height: auto;max-width: 100%;}	
+	.wh{
+	background-color:#3B3B3B;
+	}
+					
 </style>
 </head>
 <body>
 	<div class="full">
 			<table  height="100%" width="100%" style="table-layout:fixed;">
 						<tr height="100%">
-							<td align="center"></td>
+							<td align="center" class="wh"></td>
 							<td align="center"  id="headpic">
-								<table height="100%" width="100%" style="table-layout:fixed;"border="1px" bordercolor="blue">
+								<table height="100%" width="100%" style="table-layout:fixed;"border="1px" bordercolor="white">
 									<tr align="center" height="225px">
 										<td>
             									<img src="${LOGIN_STATUS.headpic}" class="pic" />
@@ -46,7 +50,7 @@
 									</tr>	
 								</table>
 							</td>
-							<td align="center"></td>
+							<td align="center" class="wh"></td>
 						</tr>
 					</table>
 
