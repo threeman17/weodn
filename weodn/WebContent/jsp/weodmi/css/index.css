@@ -13,9 +13,10 @@ body {
   flex-direction: row;
   justify-content: center; }
   .search > .search_logo {
-    background: url("../img/weodmi.png");
+    background: url("../img/weodmi.png") no-repeat;
+    background-size:80px 80px;
     width: 151px;
-    height: 70px;
+    height: 100px;
     margin: 0 auto; }
   .search .search_box_text {
     float: left;
