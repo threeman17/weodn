@@ -7,7 +7,6 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,7 +17,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet Filter implementation class LoginFilter
  */
-@WebFilter("/*")
+//@WebFilter("/*")
 public class LoginFilter extends HttpServlet implements Filter {
        
 	@Override
@@ -63,18 +62,22 @@ public class LoginFilter extends HttpServlet implements Filter {
 				chain.doFilter(request, response);
 				return;
 				}
-		if(uri.contains("jpg")){			
-			chain.doFilter(request, response);
-			return;
-			}
-		if(uri.contains("png")){			
-			chain.doFilter(request, response);
-			return;
-			}
+//		if(uri.contains("jpg")){			
+//			chain.doFilter(request, response);
+//			return;
+//			}
+//		if(uri.contains("png")){			
+//			chain.doFilter(request, response);
+//			return;
+//			}
 		if(uri.contains("css")){			
 			chain.doFilter(request, response);
 			return;
 			}
+		if(uri.contains("UserAddServlet")){			
+			chain.doFilter(request, response);
+			return;
+			}		
 		Object status=session.getAttribute("LOGIN_STATUS");		
 		if(status==null){
 			res.sendRedirect(req.getContextPath()+"/jsp/login.html");

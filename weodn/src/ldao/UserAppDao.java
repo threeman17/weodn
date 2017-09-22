@@ -17,6 +17,7 @@ public class UserAppDao {
 			}
 			String sql="select * from userapp where userid=?";
 			list=DBHelper.select(sql, UserApp.class,userid);
+			DBHelper.close();
 			return list;
 		}
 		
@@ -28,5 +29,6 @@ public class UserAppDao {
 			}
 			String sql="insert into userapp (userid,id) values (?,?)";
 			DataSource.updatede(sql.toString(), userid,id);
+			DBHelper.close();
 		}
 }
