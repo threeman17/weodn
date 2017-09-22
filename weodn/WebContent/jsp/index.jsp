@@ -59,6 +59,14 @@
          }
     </style>
     <script>
+    function logout(){ 
+    	<% 
+    	session.invalidate(); //运用invalidate()比较好，退出时使session失效
+    	%> 
+    	} 	
+    
+    
+    
         Win10.onReady(function () {
 
             //设置壁纸
@@ -146,7 +154,7 @@
             </div>
             <div class="sub-item"
                  onclick="Win10.exit()">
-                <i class="pnge"></i>退出
+                <i class="pnge" onclick="logout()"></i>退出
             </div>
             <div class="sub-item" onclick="Win10.openUrl('./showuser.jsp','<img class=\'icon\' src=\'./img/icon/asd.png\'/>个人信息')"><i class="pngm"></i>个人信息</div>
             <div class="sub-item" onclick="Win10.openUrl('./updateuser.jsp','<img class=\'icon\' src=\'./img/icon/update.png\'/>编辑资料')"><i class="pngt"></i>编辑资料</div>           
