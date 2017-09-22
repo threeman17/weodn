@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<script language="javascript">
+//--->
+function checksubmit()
+{
+  if (document.form1.myname.value=="")
+        {
+           alert("请输入开始数值！");
+           document.form1.myname.focus();
+           return false;
+        } 
+          return true;  
+}
+//--->
+</script>
+
+<form name="form1" method="post" action="#" onsubmit="return checksubmit()">
+  <label>
+  <input name="myname" type="text" id="id">
+  </label>
+  <p>
+    <label>
+    <input type="submit" name="Submit" value="提交">
+    </label>
+  </p>
+</form>
+	</head>
+	<body>
+	</body>
+</html>

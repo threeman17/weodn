@@ -1,0 +1,182 @@
+body {
+  background: #fbfbfb; }
+
+.header {
+  width: 100%;
+  height: 360px;
+  background: #a387fa;
+  display: flex;
+  position: relative; }
+
+.search {
+  margin: 70px auto 0;
+  flex-direction: row;
+  justify-content: center; }
+  .search > .search_logo {
+    background: url("../img/logo.png");
+    width: 151px;
+    height: 70px;
+    margin: 0 auto; }
+  .search .search_box_text {
+    float: left;
+    width: 584px;
+    height: 24px;
+    line-height: 24px;
+    padding: 10px 13px;
+    font-size: 14px;
+    -webkit-border-radius: 3px 0 0 3px;
+    border-radius: 3px 0 0 3px; }
+  .search .search_box_btn {
+    float: right;
+    width: 90px;
+    height: 44px;
+    line-height: 24px;
+    padding: 10px 13px;
+    color: #fff;
+    font-size: 14px;
+    -webkit-border-radius: 3px 0 0 3px;
+    border-radius: 3px 0 0 3px;
+    background: #7d56f8;
+    cursor: pointer; }
+  .search .associate {
+    position: relative;
+    z-index: 200;
+    display: none;
+    width: 608px;
+    background: #FFFFFF;
+    font-size: 14px;
+    border: 1px solid #cccccc; }
+    .search .associate li {
+      line-height: 24px;
+      height: 24px;
+      padding: 10px 13px; }
+    .search .associate li:hover {
+      background: #f0f0f0; }
+    .search .associate a {
+      float: right;
+      text-decoration: underline; }
+
+.user {
+  position: absolute;
+  right: 60px;
+  top: 30px;
+  font-size: 14px;
+  text-decoration: underline;
+  color: white; }
+
+.container {
+  width: 1000px;
+  margin: 40px auto 0; }
+
+.left {
+  float: left;
+  width: 680px; }
+
+.right {
+  float: right;
+  width: 300px; }
+
+.daily-box {
+  margin-top: 20px;
+  padding: 13px 19px 19px;
+  line-height: 28px;
+  border: 1px solid #e9e9e9; }
+  .daily-box .daily-en {
+    font-size: 20px; }
+  .daily-box .daily-cn {
+    margin-top: 20px;
+    font-size: 14px; }
+
+.hot-title {
+  font-size: 16px;
+  height: 20px;
+  line-height: 20px;
+  padding-bottom: 9px;
+  border-bottom: 1px solid #ddd; }
+
+.hot-list {
+  padding: 15px 0 0; }
+  .hot-list > .item {
+    float: left;
+    font-size: 14px;
+    padding: 0 15px;
+    height: 28px;
+    line-height: 28px;
+    border: 1px solid #ddd;
+    background: #f6f6f6;
+    margin: 10px 10px 0 0; }
+
+.showtrans {
+  padding: 10px 20px 10px 30px;
+  background: #f9f8e4; }
+  .showtrans .keyword {
+    float: left;
+    margin-top: 10px;
+    line-height: 26px;
+    font-family: 'Roboto Light';
+    font-size: 32px;
+    color: #32220e; }
+    .showtrans .keyword .keyword-pinyin {
+      font-family: "Microsoft Yahei";
+      font-size: 14px;
+      color: #9b8d72;
+      line-height: 24px; }
+  .showtrans .explains {
+    float: left;
+    line-height: 24px;
+    font-size: 14px;
+    padding: 0 0 6px 0;
+    width: 590px;
+    color: #32220e; }
+  .showtrans .translation {
+    float: left;
+    line-height: 24px;
+    font-size: 14px;
+    padding: 0 0 6px 0;
+    width: 590px;
+    color: #32220e; }
+
+.recommend {
+  margin-top: 20px; }
+
+.book {
+  width: 140px;
+  float: left;
+  margin: 0 30px 30px 0;
+  position: relative; }
+  .book img {
+    width: 140px;
+    height: 182px; }
+  .book .book-title {
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 12px;
+    color: #3377aa;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; }
+  .book .book-author {
+    display: block;
+    margin-top: 10px;
+    font-size: 12px;
+    color: #32220E;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; }
+  .book .book-more {
+    position: absolute;
+    padding: 0 20px 20px;
+    left: 150px;
+    top: 0;
+    width: 400px;
+    font-size: 12px;
+    background: #f9f9f7;
+    border: 1px solid #32220E;
+    z-index: 100; }
+    .book .book-more h4 {
+      color: #32220E;
+      font-size: 14px;
+      margin: 20px 0 10px; }
+
+/*# sourceMappingURL=index.css.map */

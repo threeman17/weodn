@@ -121,7 +121,7 @@
                 <div class="title">QQ</div>
             </div>
             <div class="shortcut"
-                 onclick="Win10.openUrl('http://baidu.com/','<img class=\'icon\' src=\'./img/icon/weodmusic.png\'/>微音乐')">
+                 onclick="Win10.openUrl('http://localhost/weodmusic/','<img class=\'icon\' src=\'./img/icon/weodmusic.png\'/>微音乐')">
                 <img class="icon" src="./img/icon/weodmusic.png"/>
                 <div class="title">微音乐</div>
             </div>
@@ -144,6 +144,11 @@
                  onclick="Win10.openUrl('https://wac.elca.org/p/PowerPointFrame.aspx?PowerPointView=EditView&WOPISrc=http%3a%2f%2f103.56.113.188%3a8001%2fwopi%2ffiles%2fdemoeditnew.pptx&access_token=4bn84tidSURfmOinpaV2my1Cb0AEk8w4Y8rhU88Y4%2b9%2fxqXsGCxqlA%3d%3d&action=edit','<img class=\'icon\' src=\'./img/icon/ppt.png\'/>powerpoint 2017')">
                 <img class="icon" src="./img/icon/ppt.png"/>
                 <div class="title">powerpoint 2017</div>
+            </div>
+             <div class="shortcut"
+                 onclick="Win10.openUrl('http://localhost:8080/weodn/jsp/weodmi/','<img class=\'icon\' src=\'./img/icon/weodmi.png\'/>微秘')">
+                <img class="icon" src="./img/icon/weodmi.png"/>
+                <div class="title">微秘</div>
             </div>
         </div>
     </div>

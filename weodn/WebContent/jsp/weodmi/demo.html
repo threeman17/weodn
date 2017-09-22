@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="https://cdn.bootcss.com/jquery/1.12.1/jquery.min.js"></script>
+		
+	</head>
+	<body>
+		<script src="" id='dataUrl'></script>
+	<p id='demo'>秋天来临了天空像一块覆盖大地的蓝宝石。
+	操作系统村外那个小池塘睁着碧澄澄的眼睛，凝望着这美好的天色。
+	一对小白鹅侧着脑袋欣赏自己映在水里的影子。山谷里枫树的叶子，
+	不知是否喝了过量的酒，红的像一团火似的。村前村后的稻子，低着头弯着腰，
+	在秋风中默默地等待着人们去收割，半空中，排着“人”字形的雁群，高兴的唱着歌，告
+	别人们，向天边慢慢飞去秋天来临了天空像一块覆盖大地的蓝宝石。
+	村外那个小池塘睁着碧澄澄的眼睛，凝望着这美好的天色。
+	一对小白鹅侧着脑袋欣赏自己映在水里的影子。山谷里枫树的叶子，
+	不知是否喝了过量的酒，红的像一团火似的。村前村后的稻子，低着头弯着腰，
+	在秋风中默默地等待着人们去收割，半空中，排着“人”字形的雁群，高兴的唱着歌，告
+	别人们，向天边慢慢飞去秋天来临了天空像一块覆盖大地的蓝宝石。
+	村外那个小池塘睁着碧澄澄的眼睛，凝望着这美好的天色。
+	一对小白鹅侧着脑袋欣赏自己映在水里的影子。山谷里枫树的叶子，
+	不知是否喝了过量的酒，红的像一团火似的。村前村后的稻子，低着头弯着腰，
+	在秋风中默默地等待着人们去收割，半空中，排着“人”字形的雁群，高兴的唱着歌，告
+	别人们，向天边慢慢飞去</p>
+	<p id="query"></p>
+	<p id="trans"></p>
+	<script>
+		
+
+  $(document).ready(function () {
+			$("#demo").mouseup(function (e) {
+				var txt;
+				var parentOffset = $(this).offset();
+				var x = e.pageX - parentOffset.left;
+				var y = e.pageY - parentOffset.top;
+				txt = window.getSelection();
+				
+				var oScript = document.createElement('script');
+				oScript.src ="http://fanyi.youdao.com/openapi.do?keyfrom=cewinstudy&key=1245653553&type=data&doctype=jsonp&callback=show&version=1.1&q="+txt;
+				document.body.appendChild(oScript);
+			});
+		});
+	function show(data){
+		console.log(data)
+		$("#query").html("选取的内容是：\t"+data.query);
+		$("#trans").html("翻译的结果是：\t"+data.translation[0]);
+	}
+	</script>
+	</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html >
+<head>
+<meta charset="UTF-8">
+<title>创客团登录/注册</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+<link rel='stylesheet prefetch' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+
+
+<div class="cotn_principal">
+  <div class="cont_centrar">
+    <div class="cont_login">
+      <div class="cont_info_log_sign_up">
+        <div class="col_md_login">
+          <div class="cont_ba_opcitiy">
+            <h2>登录</h2>
+            <p>Do one thing at a time, and do well.</br>一次只做一件事，做到最好！</p>
+            <button class="btn_login" onClick="cambiar_login()">登录</button>
+          </div>
+        </div>
+        <div class="col_md_sign_up">
+          <div class="cont_ba_opcitiy">
+            <h2>注册</h2>
+            <p>I can because i think i can.<br/>我行，因为我相信我行！</p>
+            <button class="btn_sign_up" onClick="cambiar_sign_up()">注册</button>
+          </div>
+        </div>
+      </div>
+      <div class="cont_back_info">
+        <div class="cont_img_back_grey"> <img src="po.jpg" alt="" /> </div>
+      </div>
+      <div class="cont_forms" >
+        <div class="cont_img_back_"> <img src="po.jpg" alt="" /> </div>
+        <div class="cont_form_login"> <a href="#" onClick="ocultar_login_sign_up()" ><i class="material-icons">&#xE5C4;</i></a>
+          <h2>登录</h2>
+          <input type="text" placeholder="请输入手机号" />
+          <input type="password" placeholder="请输入密码" />
+          <button class="btn_login" onClick="cambiar_login()">登录</button>
+        </div>
+       <form action="" method="post" name="form1" onsubmit="return check()">
+       	 <div class="cont_form_sign_up"> <a href="#" onClick="ocultar_login_sign_up()"><i class="material-icons">&#xE5C4;</i></a>
+          <h2>注册</h2>
+          <input type="text" placeholder="请输入手机号码" name="phone" id="phone"/>
+          <input type="text" placeholder="请输入昵称" id="username" />
+          <input type="password" placeholder="请输入六位数字以上的密码" id="pass1"/>
+          <input type="password" placeholder="请确认密码" id="pass2"/>
+          <button class="btn_sign_up" onClick="cambiar_sign_up()">注册</button>
+        </div>
+       </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/index.js"></script>
+
+</body>
+</html>
