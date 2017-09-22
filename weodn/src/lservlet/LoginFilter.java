@@ -43,7 +43,7 @@ public class LoginFilter extends HttpServlet implements Filter {
 			chain.doFilter(request, response);
 			return;
 		}
-		if(uri.contains("zhuce")){
+		if(uri.contains("useradd")){
 			chain.doFilter(request, response);
 			return;
 		}
@@ -58,8 +58,23 @@ public class LoginFilter extends HttpServlet implements Filter {
 		if(uri.contains("userlist")){			
 			chain.doFilter(request, response);
 			return;	
-			
-		}
+			}
+		if(uri.contains("js")){			
+				chain.doFilter(request, response);
+				return;
+				}
+		if(uri.contains("jpg")){			
+			chain.doFilter(request, response);
+			return;
+			}
+		if(uri.contains("png")){			
+			chain.doFilter(request, response);
+			return;
+			}
+		if(uri.contains("css")){			
+			chain.doFilter(request, response);
+			return;
+			}
 		Object status=session.getAttribute("LOGIN_STATUS");		
 		if(status==null){
 			res.sendRedirect(req.getContextPath()+"/jsp/login.html");
