@@ -161,8 +161,16 @@
 	
 	<script type="text/javascript">
 		function setting(obj){
+			var src=$(obj).attr("img_data");
 			Win10_parent.setBgUrl({main:$(obj).attr("img_data")})
 //			alert($(obj).attr("img_data"))
+			$.ajax({
+				type:'get',
+				url:"http://localhost:8080/weodn/lservlet/UpdateWallpaperServlet?src="+src,
+				success:function(data){
+					alert("壁纸设置成功")
+				}
+			})
 		}
 	</script>
 	

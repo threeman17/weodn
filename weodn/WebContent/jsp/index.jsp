@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
@@ -63,7 +64,7 @@
 
             //设置壁纸
             Win10.setBgUrl({
-                main: './img/wallpapers/main.jpg',
+                main: '${LOGIN_STATUS.wallpaper}',
                 mobile: './img/wallpapers/mobile.jpg',
             });
 
