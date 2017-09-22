@@ -117,7 +117,7 @@
 					$(".navbar-brand").html(data.nickname);
 					$.ajax({
 						type:"get",
-						url:"http://localhost:8080/weodimage//imagelistByUserId.action?userid="+user,
+						url:"http://localhost:8080/weodimage/imagelistByUserId.action?userid="+user,
 						jsonp:"callback",
 						async:true,
 						dataType:"jsonp",
@@ -140,6 +140,14 @@
 						        _this.attr('src',url);   
 			 
 							});
+						}
+						error:function(){
+							 $('script[data-url]').each(function() {  
+							        var _this = $(this),  
+							            url = _this.attr('data-url');  
+							        _this.attr('src',url);   
+				 
+								});
 						}
 					});
 				}

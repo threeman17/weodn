@@ -99,7 +99,7 @@
 							</div>-->
 							<div class="col-md-12">
 								<div class="form-group">
-									<input type="email" class="form-control" placeholder="壁纸标题" id="title">
+									<input type="text" class="form-control" placeholder="壁纸标题" id="title">
 								</div>
 								<!--<div class="form-group">
 									<textarea name="message" id="message" cols="30" class="form-control" rows="10"></textarea>
@@ -139,6 +139,7 @@
 	<script src="js/zh.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
 		var user={};
+		var title="";
 		$(function(){
 		$.ajax({
 				type:"get",
@@ -163,7 +164,7 @@
         uploadClass: "btn btn-primary",//设置上传按钮样式
         showCaption: false,//是否显示标题
         language: "zh",//配置语言
-        uploadUrl: "http://localhost:8080/weodimage/uploadImage.action?"+"title="+$("#title").val()+"&user_id="+user.userid+"&author="+user.nickname,
+        uploadUrl: "http://localhost:8080/weodimage/uploadImage.action",
         maxFileSize : 0,
         maxFileCount: 1,/*允许最大上传数，可以多个，当前设置单个*/
         enctype: 'multipart/form-data',
@@ -177,6 +178,11 @@
         browseOnZoneClick: true,
         slugCallback : function(filename) {
             return filename.replace('(', '_').replace(']', '_');
+        },
+        uploadExtraData: {
+        	author:user.nickname,
+        	user_id:user.userid,
+        	title:"你好秋天"
         }
     });
 	    //上传文件成功，回调函数 
@@ -205,6 +211,7 @@
 	
 	    $('#uploadBtn').on('click',function (){// 提交图片信息 //
 	        //先上传文件，然后在回调函数提交表单
+	        title=$("#title").val();
 	        $('#file-pic').fileinput('upload');
 	
 	    }); 
