@@ -133,7 +133,7 @@ $(function(){
 		          ' <div class="overlay-caption">' +
 		            ' <h3 class="app-name">'+data[i].name+'</h3>' +
 		            '<h5 class="app-intro">'+data[i].intro+'</h5>'+
-		           '  <p class="app-install">点击安装</p>' +
+		           '  <p class="app-install">系统应用</p>' +
 		        '   </div>' +
 		        ' </div>' +
 		       '  </a> </div>'
@@ -143,7 +143,8 @@ $(function(){
 			var bgColor=['#e8534f','#01b8e2','#fff1d9','#ffe383','#51667b','#282e3a','#e6e7e9','#1b6d85'];
 			$(".app-img-content").each(function(i){
 				$(this).css("background-color",bgColor[i%bgColor.length]);
-				$(this).css("height",$(this).width()*0.8+"px");
+				$(this).css("height","304px");
+//				$(this).css("height",$(this).width()*0.8+"px");
 				
 			})
 		}
