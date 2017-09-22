@@ -81,12 +81,28 @@
     <servlet-name>UserAddServlet</servlet-name>
     <url-pattern>/lservlet/UserAddServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>UpdateWallpaperServlet</servlet-name>
+    <servlet-class>lservlet.UpdateWallpaperServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateWallpaperServlet</servlet-name>
+    <url-pattern>/lservlet/UpdateWallpaperServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>DelSessionServlet</servlet-name>
+    <servlet-class>lservlet.DelSessionServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DelSessionServlet</servlet-name>
+    <url-pattern>/lservlet/DelSessionServlet</url-pattern>
+  </servlet-mapping>
   <filter>
-      <filter-name>LoginFilter</filter-name>
-      <filter-class>lservlet.LoginFilter</filter-class>
+    <filter-name>LoginFilter</filter-name>
+    <filter-class>lservlet.LoginFilter</filter-class>
   </filter>
   <filter-mapping>
-      <filter-name>LoginFilter</filter-name>
-      <url-pattern>*</url-pattern>
+    <filter-name>LoginFilter</filter-name>
+    <url-pattern>*</url-pattern>
   </filter-mapping>
 </web-app>

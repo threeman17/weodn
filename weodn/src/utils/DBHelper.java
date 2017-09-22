@@ -129,8 +129,6 @@ public class DBHelper {
 		return DataSource.update(update.toString());
 		} 
 	
-	
-	
 	public static int delete( String where, Object... params) {
 		return DataSource.updatede(
 				"delete from users where 1=1 " + where, params);

@@ -58,15 +58,7 @@
          	margin: 5px 0px 0px 0px;
          }
     </style>
-    <script>
-    function logout(){ 
-    	<% 
-    	session.invalidate(); //运用invalidate()比较好，退出时使session失效
-    	%> 
-    	} 	
-    
-    
-    
+    <script> 
         Win10.onReady(function () {
 
             //设置壁纸
@@ -153,8 +145,8 @@
                 <i class="pngu"></i>${LOGIN_STATUS.nickname}
             </div>
             <div class="sub-item"
-                 onclick="Win10.exit()">
-                <i class="pnge" onclick="logout()"></i>退出
+                 onclick="del()">
+                <i class="pnge" ></i>退出
             </div>
             <div class="sub-item" onclick="Win10.openUrl('./showuser.jsp','<img class=\'icon\' src=\'./img/icon/asd.png\'/>个人信息')"><i class="pngm"></i>个人信息</div>
             <div class="sub-item" onclick="Win10.openUrl('./updateuser.jsp','<img class=\'icon\' src=\'./img/icon/update.png\'/>编辑资料')"><i class="pngt"></i>编辑资料</div>           
@@ -193,5 +185,10 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+	function del() {
+		window.open("../lservlet/DelSessionServlet")
+	}
+</script>
 </body>
 </html>

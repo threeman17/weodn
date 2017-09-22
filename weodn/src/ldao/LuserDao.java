@@ -21,4 +21,17 @@ public class LuserDao {
 		DataSource.updatede(sql.toString(),userid,nickname,password,email,punchTime,punchTime,"/himg/11.png");
 		DBHelper.close();
 	}
+	public void updatewallpaper(String userid,String wallpaper){
+		try {
+			DataSource.init("com.mysql.jdbc.Driver", "jdbc:mysql://localhost:3306/weod", "root", "root");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		String sql="update users set wallpaper=? where userid=?";
+		
+		DataSource.updatede(sql.toString(),wallpaper,userid);
+		
+	}
+	
+	
 }
